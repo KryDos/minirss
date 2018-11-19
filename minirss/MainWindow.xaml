@@ -1,0 +1,38 @@
+﻿<Window x:Class="minirss.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:minirss"
+        mc:Ignorable="d"
+        Background="#000"
+        KeyDown="mainList_KeyDown"
+        Title="Mini RSS" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView 
+            x:Name="mainList"
+            Background="#FF171717"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            Foreground="#FF4FA04B" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                       <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Source="{Binding ImageUrl}"></Image>
+                        <TextBlock Grid.Column="1" Text="{Binding Title}"></TextBlock>
+                    </Grid> 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Items>
+                <ListViewItem>Loading...</ListViewItem>
+            </ListView.Items>
+        </ListView>
+    </Grid>
+</Window>
